@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS sensors (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    kks VARCHAR(50) NOT NULL,
+    min_val FLOAT NOT NULL,
+    max_val FLOAT NOT NULL,
+    current_val FLOAT,
+    unit VARCHAR(20),
+    type VARCHAR(10)
+);

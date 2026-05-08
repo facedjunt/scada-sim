@@ -1,3 +1,8 @@
+DB_USER='postgres'
+DB_PASSWORD='SigmaSraka'
+DB_HOST="127.0.0.1"
+DB_PORT='5432'
+DB_NAME='scada_db'
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -8,8 +13,9 @@ import threading
 app = Flask(__name__)
 CORS(app)
 
+
 #подключение к базе
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Kadsu@localhost:5432/scada_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
